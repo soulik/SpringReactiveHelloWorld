@@ -1,6 +1,10 @@
 spring:
+  application.name: hello0
+  cloud.kubernetes.reload.enabled: true
   profiles:
     active: dev
+server:
+  port: 8080
 ---
 spring:
   config:
@@ -8,6 +12,17 @@ spring:
       on-profile: dev
   data.mongodb:
     host: localhost
+    port: 27017
+    database: hello0
+    username:
+    password:
+---
+spring:
+  config:
+    activate:
+      on-profile: lab
+  data.mongodb:
+    host: lab-host
     port: 27017
     database: hello0
     username:
